@@ -9,15 +9,27 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     const newTodo = {
       id: new Date().getTime(),
       text: todo,
       completed: false,
     }
     console.log(todos)
-    setTodos([...todos].concat(newTodo))
+    setTodos([...todos, newTodo])
     setTodo('')
+  }
+
+
+// 18:00
+  function deleteTodo(id) {
+     console.log(id)             
+       // return only the values where the item.id is !== not equal to id. if false value it will not return that element in the array
+   const updatedTodos = todos.filter((item) => 
+   
+      item.id !== id
+   
+    )
+    setTodos(updatedTodos)
   }
 
 
@@ -27,7 +39,10 @@ function App() {
         <input type='text' onChange={(e) => setTodo(e.target.value)} value={todo} />
         <button type='submit'>Add</button>
       </form>
-      {todos.map((item, i) => <div key={i}>{item.text}</div>)}
+      {todos.map((item) => <div key={item.id} >
+        <div>{item.text}</div>
+        <button onClick={() => deleteTodo(item.id)}>Delete</button>
+        </div>)}
     </div>
   );
 }
