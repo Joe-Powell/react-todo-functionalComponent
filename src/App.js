@@ -54,6 +54,21 @@ function App() {
 
 
 
+function editTodo(id) {
+  const updatedTodos = [...todos].map((item) => {
+    if(item.id === id){
+      item.text = editingText
+    }
+    return item;
+    
+  })
+  setTodos(updatedTodos)
+  setTodoEditing(null)
+  setEditingText('')
+  
+}
+
+
   return (
     <div className="App">
 
@@ -80,8 +95,12 @@ function App() {
             checked={item.completed} 
           />
 
-          <button onClick={() => setTodoEditing(item.id)}>Edit</button>
-          <button onClick={() => editTodo(item.id) }>Submit Edits</button>
+
+          {todoEditing === item.id ? (<button onClick={() => editTodo(item.id) }>Submit Edits</button>)
+          : (<button onClick={() => setTodoEditing(item.id)}>Edit</button>)
+        }
+          
+          
 
         </div>)}
     </div>
