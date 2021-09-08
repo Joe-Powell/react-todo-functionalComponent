@@ -3,12 +3,14 @@ import './App.css';
 
 function App() {
 
+    //todo is current typing, so bottom sets top
   const [todos, setTodos] = useState([])
   const [todo, setTodo] = useState("")    // Keep track of current todo we are adding
-  //todo is current typing, so bottom sets top
+  
+  // top sets bottom here
   const [todoEditing, setTodoEditing] = useState(null)
   const [editingText, setEditingText] = useState('')
-  // top sets bottom here
+  
 
 
 
@@ -57,9 +59,9 @@ function App() {
 function editTodo(id) {
   const updatedTodos = [...todos].map((item) => {
     if(item.id === id){
-      item.text = editingText
+      item.text = editingText  
     }
-    return item;
+    return item;   // with () => {} we need to use the return keyword, () => single line no {} self returns
     
   })
   setTodos(updatedTodos)
@@ -86,10 +88,8 @@ function editTodo(id) {
              value={editingText} /> )
             : (<div>{item.text}</div>)}
           
-
-          
-
           <button onClick={() => deleteTodo(item.id)}>Delete</button>
+
           <input type='checkbox' 
             onChange={() => toggleComplete(item.id) } 
             checked={item.completed} 
