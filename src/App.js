@@ -8,8 +8,8 @@ function App() {
   const [todo, setTodo] = useState("")    // Keep track of current todo we are adding
   
   // top sets bottom here
-  const [todoEditing, setTodoEditing] = useState(null)
-  const [editingText, setEditingText] = useState('')
+  const [todoEditing, setTodoEditing] = useState(null)  //grabs id when click innitial edit btn
+  const [editingText, setEditingText] = useState('')  // grabs changes from input you type into
   
 
 
