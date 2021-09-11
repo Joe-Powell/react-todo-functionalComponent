@@ -64,21 +64,27 @@ button[type='submit'] {
   background-color: rgb(240, 246, 240);
 }
 
-.thePost {
-  display: inline-block;
+.posting {
+  width: 120px;
 }
 
-.posting input[type='text'] {
-  box-shadow: none;
-  padding: 5px;
-}
-
-input[type='checkbox'] {
+.posting input[type='checkbox'] {
   display: inline-block;
   margin: 0 5px;
 }
 
+.posting .thePost {
+  display: inline-block;
+}
+
+.posting input[type='text'] {
+  width: 75%;
+  box-shadow: none;
+  padding: 5px;
+}
+
 .edits {
+  width: fit-content;
   display: inline-block;
 }
 
@@ -115,5 +121,15 @@ input[type='checkbox'] {
 @media (max-width: 576px) {
   .main {
     width: 95vw;
+    min-width: 350px;
+  }
+
+  .submitEditsBtn {
+    padding: 2px 10px;
+  }
+
+  .cancelEditing {
+    font-size: 14px;
+    margin: 0 25px 0 10px;
   }
 }

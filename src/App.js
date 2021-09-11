@@ -71,12 +71,13 @@ function App() {
 
 
 function editTodo(id) {
+
   const updatedTodos = [...todos].map((item) => {
     if(item.id === id){
       item.text = editingText  
     }
     return item;   // with () => {} we need to use the return keyword, () => single line no {} self returns
-    
+   
   })
   setTodos(updatedTodos)
   setTodoEditing(null)
@@ -113,7 +114,7 @@ function cancelEdit() {
 
               {todoEditing === item.id ? (<input type='text'
                 onChange={(e) => setEditingText(e.target.value) }
-                 value={editingText} /> )
+                 value={editingText} placeholder={item.text} /> )
                 : (<div className="thePost">{item.text}</div>)}
 
             </div>
